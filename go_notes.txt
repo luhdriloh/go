@@ -135,12 +135,12 @@ func main() {
 - you can get the struct field with a dot as shown above
 
 
-arrays
-------
+arrays and slices
+-----------------
 
 - arrays can be declared like so 
 
-var a [2]string
+var a[2]string
 a[0] = "hello "
 a[1] = "world!"
 
@@ -148,9 +148,37 @@ or
 
 a := []int {0, 1, 2, 3}
 
+- to create a 2-d array simply do the following
+
+var equis [10][10]int
+
+- to create a slice you must use the make keyword, like so
+
+a := make([]int, 5) // the 5 tells us the slice cap
+
+b := make([]float64, 0, 10) // this tells us that the cap is 10 and that it has 0 elements
+
+- how about making 2-d slices, this is one way to do it
+
+c := make([][] int, 10)
+
+for i := 0; i < 10; i++ {
+	c[i] = make([] int, 10)
+}
+
+- so first you create the 2-d array and then in the for loop you extend the array
 
 
+maps
+----
+ 
+- to make maps you must also use the make keyword, first lets declare the map
 
+var a_map map[string]int // you must use the map keyword then [key]value
+
+- now lets initialize a_map to a map like so 
+
+a_map = make(map[string]int)
 
 
 
