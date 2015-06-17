@@ -28,4 +28,12 @@ func main() {
 		}
 		fmt.Println()
 	}
+
+	slice_stuff := []int{1, 2, 3, 4, 5}
+
+	slice_stuff = append(slice_stuff, 50)
+
+	for _, slice := range slice_stuff {
+		fmt.Printf("[%d]", slice)
+	}
 }
