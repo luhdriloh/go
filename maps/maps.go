@@ -25,4 +25,9 @@ func main() {
 	for _, current_map := range a_map {
 		fmt.Println(current_map)
 	}
+
+	// to print the key do the following
+	for key, value := range a_map {
+		fmt.Printf("key: %s		value: %d\n", key, value)
+	}
 }
