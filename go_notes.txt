@@ -181,7 +181,44 @@ var a_map map[string]int // you must use the map keyword then [key]value
 a_map = make(map[string]int)
 
 
+interfaces
+----------
 
+- an interface is defined by a set of methods, so basically anything that implement
+	that method will be considered part of that interface 
+
+- IMPORTANT interfaces are satisfied implicitly. you do not need to tell something that 
+	it is an interface
+
+
+type Person struct {
+	Greeting, name string
+	weight float64
+	dead bool
+}
+
+
+func (p *Person) Talk() string {
+	return Greeting
+}
+
+
+type Intelligent interface {
+	Talk() string
+}
+
+
+func BrainSize(thing Intelligent) float64 {
+
+}
+
+
+- because of this you can create a method and then have an interface as a parameter.
+	because of this you will be able to put in anything in that method as long as it
+	implements the methods described in the interface
+
+- you can also just create an interface variable and any struct that has those methods
+	the interface will be able to use
 
 
 
