@@ -217,8 +217,8 @@ func BrainSize(thing Intelligent) float64 {
 	because of this you will be able to put in anything in that method as long as it
 	implements the methods described in the interface
 
-- you can also just create an interface variable and any struct that has those methods
-	the interface will be able to use
+- remember only methods are allowed in interfaces and you can only call those methods 
+	within and y function that takes an interface as a parameter
 
 
 
