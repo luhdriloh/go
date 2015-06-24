@@ -221,7 +221,10 @@ func BrainSize(thing Intelligent) float64 {
 	within and y function that takes an interface as a parameter
 
 
-
+unsupported go functionality
+----------------------------
+ 
+ - go does not support method overloading 
 
 
 
