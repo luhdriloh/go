@@ -38,7 +38,7 @@ func main() {
 		}
 	}
 
-	new_image_name := "reverse" + image_name
+	new_image_name := "reverse-" + image_name
 	toimg, _ := os.Create(new_image_name)
 	defer toimg.Close()
 
