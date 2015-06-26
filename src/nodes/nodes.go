@@ -5,14 +5,18 @@ import "fmt"
 type Node struct {
 	Former *Node
 	Next   *Node
-	Data   int
+	Data   interface{}
 }
 
-func CreateNode(data int) *Node {
+// learned to use interface instead of hardcoding a specific type
+// because everything is of type interface{}. this way you can put
+// anything inside these nodes
+
+func CreateNode(data interface{}) *Node {
 	return &Node{nil, nil, data}
 }
 
-func (n *Node) AddNode(data int) {
+func (n *Node) AddNode(data interface{}) {
 	for n.Next != nil {
 		n = n.Next
 	}
@@ -29,7 +33,7 @@ func (n *Node) DeleteNode(node_to_delete *Node) {
 	}
 }
 
-func (n *Node) ReturnData() int {
+func (n *Node) ReturnData() interface{} {
 	return n.Data
 }
 

@@ -221,6 +221,11 @@ func BrainSize(thing Intelligent) float64 {
 	within and y function that takes an interface as a parameter
 
 
+* COOL AND IMPORTANT - in a function if you pass in an interface like so 
+	func x(stuff {}interface) {} this means that you can pass anything into the 
+	function because all types are of interface{}
+
+
 unsupported go functionality
 ----------------------------
  
