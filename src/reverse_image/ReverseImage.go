@@ -28,6 +28,14 @@ func main() {
 	y_min := m_bounds.Min.Y
 	y_max := m_bounds.Max.Y
 
+	newImage := m.SubImage(image.Rect(x_min, y_min, x_min+1940, y_min+900))
+
+	newimagename := "yo-" + image_name
+	img, _ := os.Create(newimagename)
+	defer img.Close()
+
+	jpeg.Encode(img, newImage, &jpeg.Options{jpeg.DefaultQuality})
+
 	for y := y_min; y < y_max; y++ {
 		for x := x_min; x < x_max/2; x++ {
 			color_on_right := m.At(x, y)
