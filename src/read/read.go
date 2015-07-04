@@ -1,8 +1,9 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
+	"io"
+	"io/ioutil"
 	"log"
 	"os"
 )
@@ -20,19 +21,16 @@ func main() {
 	defer file.Close()
 
 	// file implements Read so it is a Reader interface
-	text_reader := bufio.NewScanner(file)
-
-	var lines []string
-	for text_reader.Scan() {
-		lines = append(lines, text_reader.Text())
-	}
+	text_reader, _ := ioutil.ReadFile(path)
 
 	new_path_name := "read-" + path
-	to_text, _ := os.Create(new_path_name)
-	defer to_text.Close()
 
-	for _, str := range lines {
-		fmt.Fprintf(to_text, str)
-	}
+	ioutil.WriteFile(new_path_name, text_reader, 0777)
 
+	source, _ := os.Open("test2.txt")
+	destination, _ := os.Create("read-test2.txt")
+
+	bytesRead, _ := io.Copy(destination, source)
+
+	fmt.Println(bytesRead)
 }
