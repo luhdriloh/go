@@ -225,6 +225,12 @@ func BrainSize(thing Intelligent) float64 {
 	func x(stuff {}interface) {} this means that you can pass anything into the 
 	function because all types are of interface{}
 
+- when you create an application you should name your runnable
+	main.go its good convention. everything else would be the your
+	dependencies.
+	BUT when you create a package for use just make all your go files
+	in one directory with the same package name
+
 
 unsupported go functionality
 ----------------------------
@@ -232,9 +238,38 @@ unsupported go functionality
  - go does not support method overloading 
 
 
+concurrency
+-----------
 
+- concurrrency in go is handled by channels these are declared just like maps
+	or slices like so
 
+aChannel := make(chan string)
 
+- another important part of go is the goroutine which runs a function in its own
+	routine
+
+- these go hand in hand with go channels because if you put a channel inside 
+	of a go routine it will be able to transfer information from within the 
+	go routine also if your channel is buffered it will wait for the channel 
+	to be available like so
+
+example
+
+package main
+
+import "fmt"
+
+func main() {
+	c := make(chan int, 2)
+	c <- 1
+	c <- 2
+	c3 := func() { c <- 3 }
+	go c3()
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+    fmt.Println(<-c)
+}
 
 
 
