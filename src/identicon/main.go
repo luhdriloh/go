@@ -3,20 +3,22 @@ package main
 import (
 	"crypto/md5"
 	"encoding/hex"
+	"fmt"
 	"image"
 	"image/color"
 	"image/jpeg"
 	"os"
 )
 
-func AddHex() {
-
-}
-
 func main() {
 
 	// enter the email that you would like to become an identicon
-	email := "university1047@hotmail.com"
+	var email string
+
+	_, error := fmt.Scanf("%s", &email)
+	if error != nil {
+		return
+	}
 
 	md5Hasher := md5.New()
 
