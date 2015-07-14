@@ -1,0 +1,54 @@
+bufio
+-----
+
+-bufio grabs the io.Reader and io.Writer and basically wraps them up to add 
+	buffering and help with textual I/O
+
+- bufio consists of the following types
+
+	i.		ReadWriter
+	ii.		Reader
+	iii.	SplitFunc
+	iv.		Writer
+
+
+i. ReadWriter
+-------------
+
+- ReadWriter type consists of a pointer to a *Reader and *Writer and implements
+	the io.ReadWriter. like so
+
+type ReadWriter struct {
+	*Reader
+	*Writer
+}
+
+ii. Reader
+----------
+
+-
+
+ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
+ScanLines(data []byte, atEOF bool) (advance int, token []byte, err error)
+ScanRunes(data []byte, atEOF bool) (advance int, token []byte, err error)
+ScanWords(data []byte, atEOF bool) (advance int, token []byte, err error)
+
+these are all functions within bufio to be used by the Scanner type
+within bufio
+
+bufio also has a
+ReadWriter type which implements io.ReadWriter and it stores
+pointers to a *Reader and a *Writer
+
+Scanner
+you have
+NewScanner(r io.Reader) *Scanner
+
+to implement it you must first create a new Scanner and then
+call the Split(split SplitFunc) to set up the splitting for whatever you
+are reading.
+
+type SplitFunc func(data []byte, atEOF bool) (advance int, token []byte, err error)
+
+and if you notice the 4 functions above are of type SplitFunc so you can
+pass these functions into  scanner.SplitFunc()
