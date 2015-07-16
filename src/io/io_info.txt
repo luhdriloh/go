@@ -1,0 +1,34 @@
+io
+--
+
+- provides interfaces to I/O primitives
+
+- io consists of the following types
+
+	i.		ByteReader
+	ii.		ByteScanner
+	iii.	ByteWriter
+	iv.		Closer
+	v.		LimitedReader
+	vi.		PipeReader
+	vii.	PipeWriter
+	viii.	ReadCloser
+	ix.		ReadSeeker
+	x.		ReadWriteCloser
+	xi.		ReadWriteSeeker
+	xii.  	ReadWriter
+	xiii. 	Reader
+	xiv.	ReaderAt
+	xv.	 	ReaderFrom
+	xvi.	RuneReader
+	xvii.	RuneScanner
+	xviii.	SectionReader
+	xx.		Seeker
+	xxi.	WriteCloser
+	xxii.	WriteSeeker
+	xxiii.	WriteCloser
+	xxiv.	WriterAt
+	xxv.	WriterTo
+
+
+i. ByteReader
