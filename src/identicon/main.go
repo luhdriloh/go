@@ -15,15 +15,14 @@ func main() {
 	// enter the email that you would like to become an identicon
 	var email string
 
+	fmt.Println("Please enter your email than press ENTER!")
 	_, error := fmt.Scanf("%s", &email)
 	if error != nil {
 		return
 	}
 
 	md5Hasher := md5.New()
-
 	md5Hasher.Write([]byte(email))
-
 	hashedEmail := hex.EncodeToString(md5Hasher.Sum(nil))
 
 	// we will create a 5x5 block that will hold our identicon
@@ -99,5 +98,4 @@ func main() {
 	defer newImg.Close()
 
 	jpeg.Encode(newImg, identicon, &jpeg.Options{jpeg.DefaultQuality})
-
 }
