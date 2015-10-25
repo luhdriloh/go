@@ -14,21 +14,16 @@ type Tree struct {
 	Root *TreeNode
 }
 
-func newTreeNode(data string) *TreeNode {
-	newNode := new(TreeNode)
-	newNode.Data = data
-	newNode.Left = nil
-	newNode.Right = nil
-	return newNode
+func NewTreeNode(data string) *TreeNode {
+	return &TreeNode{data, nil, nil}
 }
 
 func NewTree(data string) *Tree {
-	rootNode := newTreeNode(data)
-	return &Tree{rootNode}
+	return &Tree{NewTreeNode(data)}
 }
 
 func (t *Tree) AddNode(data string) {
-	newNode := newTreeNode(data)
+	newNode := NewTreeNode(data)
 
 	currentNode := t.Root
 
