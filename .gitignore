@@ -1,3 +1,5 @@
 github.com
 gopkg.in
 bower_components
+/bin/
+/pkg/
