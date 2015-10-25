@@ -3,3 +3,4 @@ gopkg.in
 bower_components
 /bin/
 /pkg/
+*.png
